@@ -46,7 +46,7 @@ jobs:
     steps:
         - uses: actions/download-artifact@v4
           with:
-            name: world.txt
+            name: my-artifact
         - name: Display structure of downloaded files
           run: ls -R .
         - name: show file in workflow summary
