@@ -31,4 +31,27 @@ jobs:
       - name: Adding markdown
         run: echo '${{ toJSON(needs.job1.outputs) }}' >> $GITHUB_STEP_SUMMARY
 
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+        - run: mkdir -p path/to/artifact
+        - run: echo hello > path/to/artifact/world.txt
+        - uses: actions/upload-artifact@v4
+          with:
+            name: my-artifact
+            path: path/to/artifact/world.txt
+
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/download-artifact@v4
+          with:
+            path: path/to/artifacts
+        - name: Display structure of downloaded files
+          run: ls -R path/to/artifacts
+        - name: show file in workflow summary
+          run: cat world.txt >> $GITHUB_STEP_SUMMARY
+
+
+
 
