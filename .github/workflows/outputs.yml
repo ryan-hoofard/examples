@@ -48,7 +48,7 @@ jobs:
           with:
             path: path/to/artifacts
         - name: Display structure of downloaded files
-          run: ls -R path/to/artifacts
+          run: ls -R path/to/artifact/
         - name: show file in workflow summary
           run: cat world.txt >> $GITHUB_STEP_SUMMARY
 
